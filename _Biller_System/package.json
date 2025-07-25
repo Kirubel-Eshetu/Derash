@@ -1,0 +1,28 @@
+{
+  "name": "derash-biller-system",
+  "version": "1.0.0",
+  "description": "Derash biller system.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kira-Legacy/Derash_biller.git"
+  },
+  "author": "Kira-Legacy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kira-Legacy/Derash_biller/issues"
+  },
+  "homepage": "https://github.com/Kira-Legacy/Derash_biller#readme",
+  "dependencies": {
+    "angular": "^1.6.10",
+    "axios": "^1.9.0",
+    "body-parser": "^2.2.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1"
+  }
+}
