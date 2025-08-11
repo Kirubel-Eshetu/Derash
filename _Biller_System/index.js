@@ -1,4 +1,5 @@
 import express from "express";
+import 'dotenv/config';
 import session from 'express-session';
 import bodyParser from "body-parser";
 import axios from 'axios';
@@ -27,7 +28,7 @@ function billUpload(req, res, next) {
 }
 
 app.use(session({
-    secret: 'iknojx9uviygrsivhrc4qzcime765wzn20o9',
+    secret: process.env.BILLER_SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: { secure: false }
@@ -47,8 +48,8 @@ app.post("/credentialssubmit", billUpload, (req, res) => {
     }
 });
 
-const apiKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiS0lSQUZJWCBURUNITk9MT0dJRVMiLCJzdWIiOiIyMTk2MzYiLCJwZXJtaXNzaW9ucyI6WyJCSUxMRVIiXSwiaXNzIjoiaHR0cHM6Ly9hcGkuZGVyYXNoLmdvdi5ldCIsImp0aSI6ImFmNDUzN2MwLTNhZWItMTFmMC05N2EwLTc1YjMzMTUzY2MyMSIsImlhdCI6MTc0ODM0NDQzOH0.HA7IuTArNO3IIbN3s7m9y2GMhNkMaKmJFgvkwNrZ7mU';
-const apiSecret = 'aehv0vpk2dof3l85w778d7lvdtqxfvy3tu1l';
+const apiKey = process.env.BILLER_API_KEY;
+const apiSecret = process.env.BILLER_API_SECRET;
 
 app.get("/getbill", async (req, res) => {
     const billIDInput = req.query["billId"];

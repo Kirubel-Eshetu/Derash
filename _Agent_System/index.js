@@ -1,4 +1,5 @@
 import express, { response } from "express";
+import 'dotenv/config';
 import session from 'express-session';
 import bodyParser from "body-parser";
 import axios from 'axios';
@@ -29,7 +30,7 @@ function billPayment(req, res, next) {
 }
 
 app.use(session({
-    secret: '37x8xvva6hbwto1c8jk30g83zwvrcxpjwd0n',
+    secret: process.env.AGENT_SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: { secure: false }
@@ -49,8 +50,8 @@ app.post("/billPaymentPage", billPayment, (req, res) => {
     }
 });
 
-const apiKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTEVHQUNZIElOVEVSTkFUSU9OQUwgQkFOSyIsInN1YiI6IjExOTg5OCIsInBlcm1pc3Npb25zIjpbIkFHRU5UIl0sImlzcyI6Imh0dHBzOi8vYXBpLmRlcmFzaC5nb3YuZXQiLCJqdGkiOiI0NTUyZDgxMC0zYWVlLTExZjAtODg3Ny1jZDdmOTFlODk3MWQiLCJpYXQiOjE3NDgzNDU1NDh9.vRGqix7MHeCXUqX3vWv_nNYe4MrxMI03qNYOnZelfJY';
-const apiSecret = '37x8xvva6hbwto1c8jk30g83zwvrcxpjwd0n';
+const apiKey = process.env.AGENT_API_KEY;
+const apiSecret = process.env.AGENT_API_SECRET;
 
 app.get("/getbill", async (req, res) => {
     const billIDInput = req.query["billId"];
