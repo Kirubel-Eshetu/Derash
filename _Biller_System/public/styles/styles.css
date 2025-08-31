@@ -1,0 +1,110 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: rgb(255, 200, 200);
+}
+
+.welcomeDiv {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    position: relative;
+    background-color: white;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
+.welcome {
+    text-align: center;
+    color: #ff0229;
+    font-size: 2.5rem;
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 15s linear infinite;
+}
+
+.formdiv {
+    display: flex;
+    font-size: 1.25rem;
+    width: fit-content;
+    margin: 25px auto;
+    background-color: white;
+    border: 5px solid #ff0229;
+    border-radius: 25px;
+}
+
+.formdiv input[type="submit"].sign {
+    display: block;
+    margin: 20px auto 5px auto;
+}
+
+
+
+.formdiv input[type="email"],
+input[type="password"],
+input[type="text"] {
+    width: 300px;
+    border: 2.5px solid #ff0229;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.showPasswordLabel {
+    font-size: 1rem;
+    color: blue;
+}
+
+.spanBlue {
+    color: blue;
+}
+
+fieldset {
+    padding: 20px 45px;
+}
+
+.legendclass {
+    text-align: center;
+}
+
+label,
+input {
+    display: block;
+}
+
+.userlabel {
+    margin-bottom: 7px;
+}
+
+.passlabel {
+    margin: 15px 0 5px 0;
+}
+
+.sign {
+    margin: 25px auto 0 auto;
+    padding: 15px 100px 15px 100px;
+}
+
+.showin {
+    display: flex;
+    text-align: center;
+    margin-top: 10px
+}
+
+.showin #show {
+    margin-right: 10px;
+}
+
+input {
+    font-size: 1.2rem;
+}

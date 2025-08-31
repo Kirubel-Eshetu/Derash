@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Get and Payment page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/billPaymentPage.css">
+</head>
+
+<body>
+    <div class="popup">
+        <button class="close"><span style="color: red;">&times;</span></button>
+        <script>
+            document.querySelector('.close').addEventListener('click', function () {
+                const popup = document.querySelector('.popup');
+                popup.style.display = 'none';
+            });
+        </script>
+        <h2 class="postBillTitle">Pay a Bill</h2>
+        <p>Inorder to pay a bill you will need to fill in the following informations.<span style="color: red;">
+                *</span> </p>
+        <form action="/billPayment" method="post">
+            <label for="manifestId">Manifest Id:</label>
+            <input type="text" id="manifestId" name="manifestid" required autocomplete="off"><br><br>
+            <label for="billId">Bill Id: </label>
+            <input type="number" id="billId" name="billid" required autocomplete="off"><br><br>
+            <label for="amount">Amount: </label>
+            <input type="number" id="amount" name="amount" required autocomplete="off" min="1"><br><br>
+            <label for="Paid_date">Paid Date: </label>
+            <input type="date" id="=paid_date" name="paiddate" required autocomplete="off"><br><br>
+            <label for="payermobile">Payer Mobile:</label>
+            <input type="number" id="payermobile" name="payermobile" required autocomplete="off"><br><br>
+            <label for="paid_at">Paid at: </label>
+            <input type="text" id="paid_at" name="paidat" required autocomplete="off"><br><br>
+            <label for="txncode">Transaction Code: </label>
+            <input type="text" id="txncode" name="txncode" required autocomplete="off"><br><br>
+            <button class="closeButton btn btn-danger btn-sm">Close</button>
+            <input type="submit" value="Submit" class="btn btn-warning btn-sm" style="color: black">
+        </form>
+    </div>
+
+    <div class="headerDiv">
+        <h1 class="welcome">Welcome Agent!</h1>
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+                const welcomeElement = document.querySelector('.welcome');
+                const text = welcomeElement.textContent;
+                welcomeElement.style.setProperty('--characters', text.length);
+            });
+        </script>
+        <button class="logoutButton" onclick="showConfirmation()">Logout</button>
+        <div id="confirmationBox" class="confirmation-box" style="display: none;">
+            <p>Are you sure you want to logout?</p>
+            <button onclick="logout()" class="confirmyes">Yes</button>
+            <button onclick="hideConfirmation()">No</button>
+        </div>
+
+        <script>
+            function showConfirmation() {
+                var confirmationBox = document.getElementById('confirmationBox');
+                confirmationBox.style.display = 'block';
+                history.pushState(null, null, location.href);
+                window.addEventListener('popstate', function () {
+                    history.pushState(null, null, location.href);
+                });
+            }
+
+            function hideConfirmation() {
+                var confirmationBox = document.getElementById('confirmationBox');
+                confirmationBox.style.display = 'none';
+            }
+
+            function logout() {
+                location.href = "/logout";
+            }
+        </script>
+    </div>
+
+    <div class="container">
+        <h2 class="upload">What would you like to do today?</h2>
+
+        <form action="/getbill" method="get">
+            <div class="getBillDiv mt-4">
+                <div class="getBillInput">
+                    <input type="text" id="billId" name="billId" placeholder="Enter Bill ID" required
+                        autocomplete="off">
+                </div>
+                <div class="getBillButtonDiv">
+                    <button id="getBillButton" type="submit" class="btn btn-success pt-1 form-control-sm">Get
+                        Bill</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="billdisplay mt-3">
+
+        <% if (locals.billData) { %>
+            <h2 class="billDataTitle">Here is the Bill Data:</h2>
+            <table class="mt-3 table table-bordered">
+                <tr>
+                    <th class="bg-danger">Manifest Id</th>
+                    <th class="bg-danger">Customer Id</th>
+                    <th class="bg-danger">Name</th>
+                    <th class="bg-danger">Bill Id</th>
+                    <th class="bg-danger">Bill Description</th>
+                    <th class="bg-danger">Reason</th>
+                    <th class="bg-danger">Partial Pay Allowed</th>
+                    <th class="bg-danger">Amount Due</th>
+                    <th class="bg-danger">Due Date</th>
+                    <th class="bg-danger">Payment</th>
+                </tr>
+                <tr>
+                    <td class="bg-info">
+                        <%=billData.manifest_id%>
+                    </td>
+                    <td class="bg-info">
+                        <%=billData.customer_id%>
+                    </td>
+                    <td class="bg-info">
+                        <%=billData.name%>
+                    </td>
+                    <td class="bg-info">
+                        <%=billData.bill_id%>
+                    </td>
+                    <td class="bg-info">
+                        <%=billData.bill_desc%>
+                    </td>
+                    <td class="bg-info">
+                        <%=billData.reason%>
+                    </td>
+                    <td class="bg-info">
+                        <%=billData.partial_pay_allowed%>
+                    </td>
+                    <td class="bg-info">
+                        <%=billData.amount_due%>
+                    </td>
+                    <td class="bg-info">
+                        <%=billData.due_dt%>
+                    </td>
+
+                    <td style="background-color: rgb(255, 200, 200);">
+                        <button class="btn btn-success btn-md" id="payBillButton">Pay Bill</button>
+                        <script>
+                            const postBill = document.getElementById("payBillButton");
+                            const popup = document.querySelector(".popup");
+
+                            postBill.addEventListener("click", function () {
+                                popup.style.display = "block";
+
+                            });
+
+                            const closeButton = document.querySelector(".closeButton");
+                            closeButton.addEventListener("click", function (event) {
+                                event.preventDefault();
+                                popup.style.display = "none";
+                            });
+                        </script>
+                    </td>
+
+                </tr>
+            </table>
+            <% } %>
+    </div>
+
+    <div class="billGetAgent">
+        <% if (locals.payError) {%>
+            <p class="error-message">
+                <%= payError %>
+            </p>
+            <% } %>
+    </div>
+
+
+    <div class="billPay">
+        <% if(locals.confirmationCode){ %>
+            <h2 class="billPaymentSucess">Bill was paid sucessfully! Here is the
+                Confirmation Code.</h2>
+            <h2><strong>Confirmation Code: </strong>
+                <%=confirmationCode%>
+            </h2>
+            <%}else{%>
+                <p class="error-message">
+                    <%= locals.errorPayment %>
+                </p>
+                <% } %>
+    </div>
+</body>
+
+</html>
