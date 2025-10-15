@@ -11,12 +11,12 @@
     "type": "git",
     "url": "git+https://github.com/Kira-Legacy/Derash_biller.git"
   },
-  "author": "Kira-Legacy",
+  "author": "Kirubel Eshetu",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Kira-Legacy/Derash_biller/issues"
+    "url": "https://github.com/Kirubel-Eshetu/Derash/issues"
   },
-  "homepage": "https://github.com/Kira-Legacy/Derash_biller#readme",
+  "homepage": "https://github.com/Kirubel-Eshetu/_Biller_System/#readme",
   "dependencies": {
     "angular": "^1.6.10",
     "axios": "^1.9.0",

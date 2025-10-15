@@ -16,7 +16,7 @@ function billUpload(req, res, next) {
     var userName = req.body["username"];
     var password = req.body["password"];
 
-    if (userName === "Kirubelwinner@gmail.com" && password === "Biller#23") {
+    if (userName === "kirubelwinner@gmail.com" && password === "Billerlogin4321") {
             authorize = true;
             next();
     }
@@ -107,7 +107,7 @@ app.post("/postbill", async (req, res) => {
             }
         });
 
-        console.log("Bill was created successfully");
+        console.log("Bill was created successfully!");
 
         const confirmationCode = response.data.confirmation_code;
 
@@ -138,5 +138,5 @@ app.get('/logout', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server has started on port ${port}`);
+    console.log(`Server has started on port: ${port}`);
 });

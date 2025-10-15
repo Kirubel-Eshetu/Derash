@@ -17,7 +17,7 @@ function billPayment(req, res, next) {
     var password = req.body["password"];
 
     if (userName === "Kirubelwinner@gmail.com") {
-        if (password === "Agent#23") {
+        if (password === "Agentlogin54321") {
             authorize = true;
             next();
         }
@@ -136,5 +136,5 @@ app.get('/logout', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server has started on port ${port}`);
+    console.log(`Server has started on port: ${port}`);
 });

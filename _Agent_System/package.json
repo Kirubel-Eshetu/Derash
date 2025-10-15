@@ -11,7 +11,7 @@
     "type": "git",
     "url": "Derash_bill_management_platform"
   },
-  "author": "Kira-Legacy",
+  "author": "Kirubel Eshetu",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.4.5",
