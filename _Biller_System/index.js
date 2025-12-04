@@ -38,7 +38,6 @@ app.get("/", (req, res) => {
     res.render("index.ejs");
 });
 
-
 app.post("/credentialssubmit", billUpload, (req, res) => {
     if (authorize) {
         res.render("billerpage.ejs");
