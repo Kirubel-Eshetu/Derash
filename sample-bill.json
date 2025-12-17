@@ -1,0 +1,30 @@
+{
+    "_id": "ObjectId('23k2346ir234669ubel2k3r')",
+    "updated_at": "2025-12-17T11:36:23.233+00:00",
+    "biller_id": 240073,
+    "biller_name": "Huruta hetosa dera water and Sewerage Enterprise",
+    "bill_id": "69694623",
+    "bill_description": "current = 100.0, previous = 95.5, use = 4.5",
+    "bill_reason": "Sadaasa-2018",
+    "bill_amount_due": 300.5,
+    "bill_due_dt": "2025-12-30T00:00:00,000+00:00",
+    "customer_id": "2346690",
+    "customer_name": "Kirubel Eshetu Tefera",
+    "customer_mobile_number": "0939806607",
+    "customer_email": "kirubelwinner@gmail.com",
+    "bill_data_file_id": "none",
+    "partial_pay_allowed": false,
+    "bill_submitted_as_paid": false,
+    "_v": 0,
+    "payment_status": 
+    {
+        "payee_mobile_number": "0939806607",
+        "confirmation_code": "6969464623ekri003",
+        "agent_tx_code": "kir23ve",
+        "agent_id": 234623,
+        "paid_at": "Oromia Bank",
+        "paid_amout": 300.5
+    }
+    
+    
+}
