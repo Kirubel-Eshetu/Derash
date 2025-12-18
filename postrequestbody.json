@@ -1,0 +1,12 @@
+{
+    "bill_id": "233223",
+    "bill_desc": "Internet bill for Tahsas",
+    "reason": "Internet bill",
+    "amount_due": "10000",
+    "due_date": "2026-01-25",
+    "partial_pay_allowed": true,
+    "customer_id": "002332",
+    "name": "KiraFix Unlimited",
+    "mobile": "0939806607",
+    "email": "kirafixunlimited@kmail.com"
+}
