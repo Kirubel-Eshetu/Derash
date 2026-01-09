@@ -25,4 +25,4 @@ Do not commit `.env` files. See `.gitignore`.
 
 - Down below you may find the working production of of Derash National Billing Payment System (NBPS):
 
-<a href="https://derash.gov.et"><img src="https://github.com/Kirubel-Eshetu/Derash/blob/mainDerash-logo.png" alt="Derash national billing payment system logo"></a>
+<a href="https://derash.gov.et"><img src="https://github.com/Kirubel-Eshetu/Derash/blob/main/Derash-logo.png" alt="Derash national billing payment system logo"></a>
