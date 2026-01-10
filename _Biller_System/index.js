@@ -16,13 +16,13 @@ function billUpload(req, res, next) {
     var userName = req.body["username"];
     var password = req.body["password"];
 
-    if (userName === "kirubelwinner@gmail.com" && password === "Billerlogin4321") {
+    if (userName === "billeronderash@gmail.com" && password === "Newbiller4321") {
             authorize = true;
             next();
     }
 
     else {
-        res.render("index.ejs", { credentialsError: "Invalid username or password." });
+        res.render("index.ejs", { credentialsError: "Invalid username or password!" });
     }
 
 }
